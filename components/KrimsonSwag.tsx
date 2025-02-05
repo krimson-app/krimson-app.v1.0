@@ -54,12 +54,12 @@ export function KrimsonSwag({ onSubmit }: KrimsonSwagProps) {
           Let People Know You Have Krimson!
         </h2>
         <p className="mt-4 text-center text-sm text-white">
-          At Car Code Connect, we want people to know they can reach you if there's an issue with your vehicle, so we
+          At Krimson, we want people to know they can reach you if there is an issue with your vehicle, so we
           encourage you to add whichever Krimson swag you want to display.
         </p>
         <p className="mt-2 text-center text-sm text-white">
-          To show you we're serious, once you receive your swag, send us pictures of it displayed on your vehicle and
-          we'll gift you free months on your subscription - up to 18 months if you're swag-tastic!
+          To show you we are serious, once you receive your swag, send us pictures of it displayed on your vehicle and
+          we will gift you free months on your subscription - up to 18 months if you are swag-tastic!
         </p>
         <p className="mt-2 text-center text-sm text-gray-300">Select Your Krimson Swag:</p>
       </div>

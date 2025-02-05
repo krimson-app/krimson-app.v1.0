@@ -63,7 +63,7 @@ export function AccountSettings() {
   }
 
   if (showTwoFactor) {
-    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} />
+    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} phoneNumber={""} />
   }
 
   return (
