@@ -17,6 +17,7 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { AlertCircle } from "lucide-react"
+import { DevelopmentPopup } from "./DevelopmentPopup"
 
 const usStatesAndTerritories = [
   { code: "AL", name: "Alabama" },
@@ -148,6 +149,7 @@ export default function LandingPage() {
   const [showDialog, setShowDialog] = useState(false)
   const [showSymbolDropdown, setShowSymbolDropdown] = useState(false)
   const [selectedSymbol, setSelectedSymbol] = useState("")
+  const [showDevelopmentPopup, setShowDevelopmentPopup] = useState(true)
 
   useEffect(() => {
     // Reset reason and affected areas when category changes
@@ -159,6 +161,10 @@ export default function LandingPage() {
     // Show symbol dropdown if # is present in the plate number for California
     setShowSymbolDropdown(state === "CA" && plateNumber.includes("#"))
   }, [state, plateNumber])
+
+  useEffect(() => {
+    setShowDevelopmentPopup(true)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -295,7 +301,7 @@ export default function LandingPage() {
               </SelectTrigger>
               <SelectContent className="bg-black text-white border-white">
                 {connectionReasons[category as keyof typeof connectionReasons]?.map((reason) => (
-                  <SelectItem key={reason} value={reason} className="hover:bg-white focus:bg-white">
+                  <SelectItem key={reason} value={reason} className="hover:bg-transparent focus:bg-transparent">
                     {reason}
                   </SelectItem>
                 ))}
@@ -333,7 +339,7 @@ export default function LandingPage() {
           </div>
         )}
         <Button type="submit" className="w-full bg-white text-black hover:bg-gray-200">
-          Connect
+          Let's Connect
         </Button>
         <div className="flex justify-center space-x-4 mt-4">
           <Link href="/signin" className="text-white hover:underline">
@@ -360,6 +366,7 @@ export default function LandingPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      <DevelopmentPopup isOpen={showDevelopmentPopup} onClose={() => setShowDevelopmentPopup(false)} />
     </>
   )
 }
