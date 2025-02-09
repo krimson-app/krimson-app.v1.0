@@ -295,7 +295,7 @@ export default function LandingPage() {
               </SelectTrigger>
               <SelectContent className="bg-black text-white border-white">
                 {connectionReasons[category as keyof typeof connectionReasons]?.map((reason) => (
-                  <SelectItem key={reason} value={reason} className="hover:bg-transparent focus:bg-transparent">
+                  <SelectItem key={reason} value={reason} className="hover:bg-white focus:bg-white">
                     {reason}
                   </SelectItem>
                 ))}
