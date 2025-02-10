@@ -31,6 +31,7 @@ export default function ForgotPassword() {
     setError("")
     // Here you would typically verify if the phone number exists in your system
     // For this example, we'll just move to the TFA step
+    setPhoneNumber(phoneNumber) // Ensure phoneNumber is set before showing TFA
     setShowTwoFactor(true)
   }
 
@@ -67,7 +68,7 @@ export default function ForgotPassword() {
       <div className="w-full max-w-md space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">
-            Reset Your <span className="text-[#DC1C3C] font-bold">Krimson</span> Password
+            Reset Your &lt;span className=&quot;text-[#DC1C3C] font-bold&quot;&gt;Krimson&lt;/span&gt; Password
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleNewPasswordSubmit}>
@@ -141,14 +142,14 @@ export default function ForgotPassword() {
   }
 
   if (showTwoFactor) {
-    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} />
+    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} phoneNumber={phoneNumber} />
   }
 
   return (
     <div className="w-full max-w-md space-y-8">
       <div>
         <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">
-          Forgot Your <span className="text-[#DC1C3C] font-bold">Krimson</span> Password?
+          Forgot Your &lt;span className=&quot;text-[#DC1C3C] font-bold&quot;&gt;Krimson&lt;/span&gt; Password?
         </h2>
         <p className="mt-2 text-center text-sm text-gray-300">Enter your phone number to reset your password.</p>
       </div>
