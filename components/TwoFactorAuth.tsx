@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { sendTFACode } from "@/utils/auth"
 
 interface TwoFactorAuthProps {
-  onSubmit: (code: string, phoneNumber: string) => void
+  onSubmit: (code: string) => void
   phoneNumber: string
 }
 
@@ -21,7 +21,7 @@ export function TwoFactorAuth({ onSubmit, phoneNumber }: TwoFactorAuthProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onSubmit(code, phoneNumber)
+    onSubmit(code)
   }
 
   return (

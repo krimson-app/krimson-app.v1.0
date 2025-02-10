@@ -51,7 +51,7 @@ export default function SignIn() {
   }
 
   if (showTwoFactor) {
-    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} />
+    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} phoneNumber={phoneNumber} />
   }
 
   return (
