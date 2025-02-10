@@ -1,4 +1,4 @@
-import ConnectDetails from '@/components/ConnectDetails'
+import ConnectDetails from "@/components/ConnectDetails"
 
 export default function ConnectPage() {
   return (
