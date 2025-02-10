@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -27,7 +27,6 @@ export default function ConnectDetails() {
   const [messageError, setMessageError] = useState("")
   const [file, setFile] = useState<File | null>(null)
   const [insuranceFile, setInsuranceFile] = useState<File | null>(null)
-  const [insuranceCardFile, setInsuranceCardFile] = useState<File | null>(null)
   const [insuranceOption, setInsuranceOption] = useState<"upload" | "manual" | "noInsurance">("upload")
   const [insuranceDetails, setInsuranceDetails] = useState({
     namedInsured: "",
@@ -60,10 +59,7 @@ export default function ConnectDetails() {
     }
   }
 
-  const handleFileChange = async (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fileType: "main" | "insurance" | "insuranceCard",
-  ) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>, fileType: "main" | "insurance") => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
       if (fileType === "main") {
@@ -77,8 +73,6 @@ export default function ConnectDetails() {
         }
       } else if (fileType === "insurance") {
         setInsuranceFile(selectedFile)
-      } else if (fileType === "insuranceCard") {
-        setInsuranceCardFile(selectedFile)
       }
     }
   }
@@ -101,7 +95,7 @@ export default function ConnectDetails() {
 
   const sendVerificationCode = () => {
     // In a real application, this would send an API request to send an SMS
-    // For now, we'll just generate a random 6-digit code
+    // For now, we&apos;ll just generate a random 6-digit code
     const code = Math.floor(100000 + Math.random() * 900000).toString()
     console.log(`Verification code sent: ${code}`)
     return code
@@ -144,7 +138,6 @@ export default function ConnectDetails() {
     setMessage("")
     setFile(null)
     setInsuranceFile(null)
-    setInsuranceCardFile(null)
     setInsuranceDetails({
       namedInsured: "",
       provider: "",
@@ -175,7 +168,7 @@ export default function ConnectDetails() {
   return (
     <div className="w-full max-w-md space-y-8 pb-16">
       <div>
-        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">Let's Connect</h2>
+        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">Let&apos;s Connect</h2>
         {category && <p className="mt-2 text-center text-lg font-semibold text-white">Category: {category}</p>}
         {(reason || affectedAreas) && (
           <p className="mt-2 text-center text-lg font-semibold text-white">
@@ -362,9 +355,9 @@ export default function ConnectDetails() {
               </div>
             </RadioGroup>
             <p className="text-sm text-gray-300 mt-2">
-              {category === "Connections" || category === "Parking"
-                ? "Note: At Krimson we value your privacy and appreciate you for reaching out to our subscriber. Krimson will not share your phone number with the car owner. Return messages will come from a Krimson-affiliated number. SMS messaging charges may apply."
-                : "Note: At Krimson we value your privacy and appreciate you for self-reporting this incident. Krimson will not share your phone number with the car owner. Return messages will come from a Krimson-affiliated number. SMS messaging charges may apply."}
+              Note: At Krimson we value your privacy and appreciate you for reaching out to our subscriber. Krimson will
+              not share your phone number with the car owner. Return messages will come from a Krimson-affiliated
+              number. SMS messaging charges may apply.
             </p>
           </div>
           {includePhoneNumber === "yes" && (

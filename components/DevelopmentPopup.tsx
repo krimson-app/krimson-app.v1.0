@@ -44,7 +44,7 @@ export function DevelopmentPopup({ isOpen, onClose }: DevelopmentPopupProps) {
     e.preventDefault()
     if (contact) {
       setError("")
-      setSuccess("Thank you! We'll notify you when the site is ready.")
+      setSuccess("Thank you! We&apos;ll notify you when the site is ready.")
       setTimeout(() => {
         onClose()
       }, 2000)
@@ -62,7 +62,7 @@ export function DevelopmentPopup({ isOpen, onClose }: DevelopmentPopupProps) {
             <span className="text-[#DC1C3C] font-bold">Krimson</span> is Under Development
           </DialogTitle>
           <DialogDescription className="text-gray-300">
-            We're working hard to get you connected. Please check back soon!
+            We&apos;re working hard to get you connected. Please check back soon!
           </DialogDescription>
         </DialogHeader>
         {!showSignIn ? (

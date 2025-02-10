@@ -19,7 +19,6 @@ export function PaymentSummary({ subscriptionPlan, freeMonths, onSubmit }: Payme
 
   useEffect(() => {
     const monthlyRate = subscriptionPlan === "monthly" ? 5.99 : 49.99 / 12
-    const subscriptionMonths = subscriptionPlan === "monthly" ? 1 : 12
     const subtotalAmount = subscriptionPlan === "monthly" ? 5.99 : 49.99
     const discountAmount = monthlyRate * freeMonths
 

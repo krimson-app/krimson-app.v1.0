@@ -339,7 +339,7 @@ export default function LandingPage() {
           </div>
         )}
         <Button type="submit" className="w-full bg-white text-black hover:bg-gray-200">
-          Let's Connect
+          Let&apos;s Connect
         </Button>
         <div className="flex justify-center space-x-4 mt-4">
           <Link href="/signin" className="text-white hover:underline">

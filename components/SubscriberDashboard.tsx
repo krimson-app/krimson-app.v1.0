@@ -10,7 +10,6 @@ import { Button } from "./ui/button"
 import { User, Bell, LogOut } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
 import { VehicleProvider } from "@/contexts/VehicleContext"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 export function SubscriberDashboard() {

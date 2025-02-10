@@ -13,15 +13,15 @@ interface TwoFactorAuthProps {
 
 export function TwoFactorAuth({ onSubmit, phoneNumber }: TwoFactorAuthProps) {
   const [code, setCode] = useState("")
-  const [sentCode, setSentCode] = useState("")
 
   useEffect(() => {
     const code = sendTFACode(phoneNumber)
-    setSentCode(code)
+    console.log(`Verification code sent: ${code}`)
   }, [phoneNumber])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const sentCode = sendTFACode(phoneNumber)
     onSubmit(code, phoneNumber)
   }
 
