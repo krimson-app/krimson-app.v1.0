@@ -15,7 +15,7 @@ export function TwoFactorAuth({ onSubmit, phoneNumber }: TwoFactorAuthProps) {
   const [code, setCode] = useState("")
 
   useEffect(() => {
-    const code = sendTFACode(phoneNumber)
+    sendTFACode(phoneNumber)
     console.log(`Verification code sent to ${phoneNumber}`)
   }, [phoneNumber])
 
