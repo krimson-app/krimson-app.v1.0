@@ -87,7 +87,7 @@ export default function Registration() {
   }
 
   const handleKrimsonSwagSubmit = (preferences: KrimsonSwagType) => {
-    // Here you would send the Krimson swag preferences to your backend
+    // Here you would send the C3 swag preferences to your backend
     console.log("Krimson Swag preferences:", preferences)
     // Calculate free months based on swag selection
     const calculatedFreeMonths =
@@ -149,7 +149,7 @@ export default function Registration() {
   }
 
   if (showTwoFactor) {
-    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} />
+    return <TwoFactorAuth onSubmit={handleTwoFactorSubmit} phoneNumber={emailOrPhone} />
   }
 
   return (
