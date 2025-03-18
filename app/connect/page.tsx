@@ -1,4 +1,5 @@
 import ConnectDetails from "@/components/ConnectDetails"
+import { Suspense } from "react"
 
 export default function ConnectPage() {
   return (
